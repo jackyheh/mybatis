@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="caseSensitive" value="true"/>
+        </plugin>
+
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://120.77.168.227:3306/test02?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;tinyInt1isBit=false"
+                        userId="root"
+                        password="root1234">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="cn.heh.order.entity.test02"
+                            targetProject="../test/java/"/>
+
+        <sqlMapGenerator targetPackage="mybatis"
+                         targetProject="../test/resources/test02"/>
+
+        <javaClientGenerator targetPackage="cn.heh.order.mapper.test02"
+                             targetProject="../test/java/"
+                             type="XMLMAPPER"/>
+
+        <table tableName="app_order" domainObjectName="AppOrderEntity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MYSQL" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

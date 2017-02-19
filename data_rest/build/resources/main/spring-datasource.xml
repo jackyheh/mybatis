@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--声明:各DataSource的name 及 MapperScannerConfigurer的name,不要随意更改，否则会影响AOP的读写分离正常使用-->
+
+    <bean id="parentDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://120.77.168.227:3306/test01?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;tinyInt1isBit=false&amp;allowMultiQueries=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root1234"/>
+        <property name="filters" value="stat"/>
+        <property name="maxActive" value="50"/>
+        <property name="initialSize" value="1"/>
+        <!-- 配置获取连接等待超时的时间（毫秒） -->
+        <property name="maxWait" value="15000"/>
+        <property name="minIdle" value="1"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="30000"/>
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="180000"/>
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="false"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+        <!-- 超过时间限制是否回收 -->
+        <property name="removeAbandoned" value="true"/>
+        <!-- 超时时间；单位为秒。600秒=10分钟 -->
+        <property name="removeAbandonedTimeout" value="600"/>
+        <!-- 关闭abanded连接时输出错误日志 -->
+        <property name="logAbandoned" value="false"/>
+        <!--<property name="connectionInitSqls" value="set names utf8mb4;"/>-->
+    </bean>
+
+    <!--alfred库-->
+    <bean id="dsAlfred" parent="parentDataSource">
+        <property name="url" value="jdbc:mysql://120.77.168.227:3306/test01?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;tinyInt1isBit=false&amp;allowMultiQueries=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root1234"/>
+    </bean>
+
+    <bean id="sqlSessionFactoryAlfred" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <property name="dataSource" ref="dsAlfred"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:mybatis/*.xml</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="alfredScannerConfigurer" class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.heh.order.mapper.test01"/>
+        <property name="properties">
+            <value>
+                mappers=tk.mybatis.mapper.common.Mapper
+                IDENTITY=MYSQL
+                notEmpty=true
+            </value>
+        </property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryAlfred"/>
+    </bean>
+
+    <bean id="alfredTxManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dsAlfred"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="alfredTxManager"/>
+
+    <!--alfredmobile库-->
+    <bean id="dsAlfredMobile" parent="parentDataSource">
+        <property name="url" value="jdbc:mysql://120.77.168.227:3306/test02?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;tinyInt1isBit=false&amp;allowMultiQueries=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root1234"/>
+    </bean>
+
+    <bean id="sqlSessionFactoryAlfredMobile" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="dataSource" ref="dsAlfredMobile"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:mybatis/*.xml</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="alfredMobileScannerConfigurer" class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.heh.order.mapper.test02"/>
+        <property name="properties">
+            <value>
+                mappers=tk.mybatis.mapper.common.Mapper
+                IDENTITY=MYSQL
+                notEmpty=true
+            </value>
+        </property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryAlfredMobile"/>
+    </bean>
+
+    <bean id="alfredMobileTxManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dsAlfredMobile"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="alfredMobileTxManager"/>
+
+</beans>

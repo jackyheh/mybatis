@@ -1,0 +1,74 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+def artifactId = "data_service"
+def env = System.getProperty("env") ?: "test"
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/resources", "src/main/profile/$env"]
+        }
+    }
+}
+
+
+dependencies {
+    compile(project(":data_mapper"))
+    compile(project(":data_common"))
+    compile(project(":data_entity"))
+
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'javax.validation:validation-api:1.1.0.Final'
+    compile 'org.hibernate:hibernate-validator:5.2.2.Final'
+    compile 'javax.ws.rs:javax.ws.rs-api:2.0'
+    compile 'javax.annotation:javax.annotation-api:1.2'
+
+    compile 'org.jboss.resteasy:resteasy-client:3.0.9.Final'
+    compile 'org.jboss.resteasy:resteasy-jaxrs:3.0.9.Final'
+    compile 'org.jboss.resteasy:resteasy-netty:3.0.14.Final'
+
+    compile 'com.esotericsoftware.kryo:kryo:2.24.0'
+    compile 'de.javakaffee:kryo-serializers:0.37'
+
+    compile 'org.jboss.netty:netty:3.2.10.Final'
+    compile 'io.netty:netty-all:4.0.34.Final'
+
+    compile 'org.jboss.resteasy:resteasy-jackson-provider:3.0.14.Final'
+    compile 'org.jboss.resteasy:resteasy-jaxb-provider:3.0.16.Final'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
+    compile 'javax.xml.bind:jaxb-api:2.2.7'
+
+    compile 'org.apache.tomcat.embed:tomcat-embed-core:8.0.11'
+    compile 'org.apache.tomcat.embed:tomcat-embed-logging-juli:8.0.11'
+
+    compile 'org.hprose:hprose-java:1.6.1'
+    testCompile  'org.jboss.resteasy:resteasy-client:3.0.7.Final'
+
+}
+
+processResources {
+    exclude { "**/*.*" }
+}
+
+
+task pack(type: Copy, dependsOn: [clean, installDist]) {
+    sourceSets.main.resources.srcDirs.each {
+        from it
+        into "$buildDir/install/$artifactId/lib/resources"
+    }
+}
+
+mainClassName = 'cn.mwee.order.service.MFServiceProvider'
+version 'unspecified'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

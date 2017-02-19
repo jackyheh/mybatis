@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jboss.resteasy:resteasy-jaxb-provider:3.0.16.Final">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jboss.resteasy/resteasy-jaxb-provider/3.0.16.Final/92a74fc96efd478f94234ecdbd885b83a6d4d025/resteasy-jaxb-provider-3.0.16.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jboss.resteasy/resteasy-jaxb-provider/3.0.16.Final/300fb31274a4064eff3e73b77e0e7f55b11f2251/resteasy-jaxb-provider-3.0.16.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

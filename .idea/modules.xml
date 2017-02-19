@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MybatisTestNew.iml" filepath="$PROJECT_DIR$/.idea/modules/MybatisTestNew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_common/data_common.iml" filepath="$PROJECT_DIR$/.idea/modules/data_common/data_common.iml" group="data_common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_common/data_common_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data_common/data_common_main.iml" group="data_common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_common/data_common_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data_common/data_common_test.iml" group="data_common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_entity/data_entity.iml" filepath="$PROJECT_DIR$/.idea/modules/data_entity/data_entity.iml" group="data_entity" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_entity/data_entity_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data_entity/data_entity_main.iml" group="data_entity" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_entity/data_entity_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data_entity/data_entity_test.iml" group="data_entity" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_mapper/data_mapper.iml" filepath="$PROJECT_DIR$/.idea/modules/data_mapper/data_mapper.iml" group="data_mapper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_mapper/data_mapper_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data_mapper/data_mapper_main.iml" group="data_mapper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_mapper/data_mapper_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data_mapper/data_mapper_test.iml" group="data_mapper" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_rest/data_rest.iml" filepath="$PROJECT_DIR$/.idea/modules/data_rest/data_rest.iml" group="data_rest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_rest/data_rest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data_rest/data_rest_main.iml" group="data_rest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_rest/data_rest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data_rest/data_rest_test.iml" group="data_rest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_service/data_service.iml" filepath="$PROJECT_DIR$/.idea/modules/data_service/data_service.iml" group="data_service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_service/data_service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data_service/data_service_main.iml" group="data_service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_service/data_service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data_service/data_service_test.iml" group="data_service" />
+    </modules>
+  </component>
+</project>

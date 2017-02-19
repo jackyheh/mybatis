@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="data_common_main" target="1.8" />
+      <module name="data_common_test" target="1.8" />
+      <module name="data_entity_main" target="1.8" />
+      <module name="data_entity_test" target="1.8" />
+      <module name="data_mapper_main" target="1.8" />
+      <module name="data_mapper_test" target="1.8" />
+      <module name="data_rest_main" target="1.8" />
+      <module name="data_rest_test" target="1.8" />
+      <module name="data_service_main" target="1.8" />
+      <module name="data_service_test" target="1.8" />
+      <module name="MybatisTestNew_main" target="1.5" />
+      <module name="MybatisTestNew_test" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

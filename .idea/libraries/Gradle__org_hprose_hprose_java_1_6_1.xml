@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.hprose:hprose-java:1.6.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hprose/hprose-java/1.6.1/d859e543d16627499c3b03ec0d4a9da66e0d823d/hprose-java-1.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hprose/hprose-java/1.6.1/47ed92b0471333e39a8fcd60a0df18a1558741dc/hprose-java-1.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

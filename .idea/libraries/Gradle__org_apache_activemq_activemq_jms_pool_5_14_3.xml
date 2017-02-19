@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.activemq:activemq-jms-pool:5.14.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.activemq/activemq-jms-pool/5.14.3/585e9ad7f9dc700ea124b804ee810acd97518b5d/activemq-jms-pool-5.14.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.activemq/activemq-jms-pool/5.14.3/671c864633960ed676b1a6424f7f78d88dcbc042/activemq-jms-pool-5.14.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

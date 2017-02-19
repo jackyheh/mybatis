@@ -1,0 +1,20 @@
+group 'cn.heh'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+repositories {
+    mavenLocal()
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile(project(":data_mapper"))
+    compile(project(":data_common"))
+    compile(project(":data_entity"))
+}
