@@ -15,9 +15,9 @@
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://120.77.168.227:3306/test01?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;tinyInt1isBit=false"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/test01?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;tinyInt1isBit=false"
                         userId="root"
-                        password="root1234">
+                        password="root">
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="cn.heh.order.entity.test01"
